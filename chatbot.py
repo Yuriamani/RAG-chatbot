@@ -1,6 +1,9 @@
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_chroma import Chroma
 import gradio as gr
+from langchain_groq import ChatGroq
+from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 # import the .env file
 from dotenv import load_dotenv
@@ -8,12 +11,19 @@ load_dotenv()
 
 # configuration
 DATA_PATH = r"data"
-CHROMA_PATH = r"chroma_db"
+# CHROMA_PATH = r"chroma_db"
+CHROMA_PATH = r"huggingface_chroma_db"
 
-embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large")
+# embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large")
+embeddings_model = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
+)
 
 # initiate the model
-llm = ChatOpenAI(temperature=0.5, model='gpt-4o-mini')
+# llm = ChatOpenAI(temperature=0.5, model='gpt-4o-mini')
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile"
+)
 
 # connect to the chromadb
 vector_store = Chroma(
@@ -74,4 +84,4 @@ chatbot = gr.ChatInterface(stream_response, textbox=gr.Textbox(placeholder="Send
 )
 
 # launch the Gradio app
-chatbot.launch()
+chatbot.launch(share=True)

@@ -3,6 +3,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_chroma import Chroma
 from uuid import uuid4
+from langchain_huggingface import HuggingFaceEmbeddings
 
 # import the .env file
 from dotenv import load_dotenv
@@ -10,10 +11,14 @@ load_dotenv()
 
 # configuration
 DATA_PATH = r"data"
-CHROMA_PATH = r"chroma_db"
+# CHROMA_PATH = r"chroma_db"
+CHROMA_PATH = r"huggingface_chroma_db"
 
 # initiate the embeddings model
-embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large")
+# embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large")
+embeddings_model = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
+)
 
 # initiate the vector store
 vector_store = Chroma(
