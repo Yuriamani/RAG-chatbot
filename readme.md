@@ -1,12 +1,6 @@
-<h1>Chatbot with RAG and LangChain</h1>
+<h1>Kilimo AI</h1>
 
-<h2>Watch the full tutorial on my YouTube Channel</h2>
-<div>
-
-<a href="https://www.youtube.com/watch?v=xf3gAFclwqo">
-    <img src="thumbnail_small.png" alt="Thomas Janssen Youtube" width="200"/>
-</a>
-</div>
+<p>Kilimo AI is a multilingual agricultural assistant that uses Retrieval-Augmented Generation (RAG) and voice interaction to help farmers get crop guidance based on curated farming knowledge.</p>
 
 <h2>Prerequisites</h2>
 <ul>
@@ -17,8 +11,8 @@
 <h3>1. Clone the repository:</h3>
 
 ```
-git clone https://github.com/ThomasJanssen-tech/Chatbot-with-RAG-and-LangChain.git
-cd Chatbot-with-RAG-and-LangChain
+git clone https://github.com/Yuriamani/RAG-chatbot.git
+cd RAG-chatbot
 ```
 
 <h3>2. Create a virtual environment</h3>
@@ -41,8 +35,7 @@ pip install -r requirements.txt
 ```
 
 <h3>5. Add OpenAI API Key</h3>
-Rename the .env.example file to .env
-Add your OpenAI API Key
+Add a .env file and add your openAI/ groq API Key
 
 <h2>Executing the scripts</h2>
 

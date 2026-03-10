@@ -149,7 +149,7 @@ def stream_response(message, audio_input, history):
 
 # initiate the Gradio app
 with gr.Blocks() as demo:
-    gr.Markdown("# 🌾 Kilimo Voice RAG Assistant")
+    gr.Markdown("# 🌾 Kilimo AI – Multilingual Voice Assistant for Farmers")
     
     chatbot = gr.Chatbot(label="Conversation History", height=400)
     
@@ -188,7 +188,7 @@ with gr.Blocks() as demo:
         outputs=output_list
     )
 
-demo.launch(theme=gr.themes.Soft(), share=True)
+demo.launch(theme=gr.themes.Glass())
 
 # with gr.Blocks() as demo:
 #     gr.Markdown("# 🌾 Kilimo Voice RAG Assistant")
